@@ -1,0 +1,66 @@
+#:kivy 1.0
+
+WindowManager:
+    MainScreen:
+
+
+<MainScreen>:
+    name: 'MainScreen'
+
+    FloatLayout:
+        id: main
+        Label:
+            text: "Dota 2 Rampage Finder"
+            size_hint: 1, 0.15
+            pos_hint: {"y" : 0.85}
+            font_size: 35
+
+        Label:
+            text: 'Links'
+            font_size: 20
+            size_hint: 0.5, 0.1
+            pos_hint: {'center_x':0.75, 'y':0.75}
+
+        GridLayout:
+            cols: 2
+            rows: 1
+            size_hint: 1, 0.75
+            pos_hint: {'y' : 0.1}
+
+            GridLayout:
+                rows: 3
+                spacing: 75
+                padding: 50
+
+                TextInput:
+                    id: account_id
+                    hint_text: "Account ID"
+                    multiline: False
+
+                TextInput:
+                    id: number_of_matches
+                    hint_text: "Number of matches to look at"
+                    multiline: False
+
+                TextInput:
+                    id: api_key
+                    hint_text: "Steam Web API Key"
+                    multiline: False
+
+            GridLayout:
+                id: links
+                cols: 1
+
+        ProgressBar:
+            id: progress
+            size_hint: 0.75, 0.1
+            pos_hint: {'center_x' : 0.5}
+
+        Button:
+            id: find
+            text: 'Find'
+            size_hint: 0.3, 0.1
+            pos_hint: {'center_x':0.75, 'center_y':0.5}
+            on_release:
+                root.find_matches()
+    
