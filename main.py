@@ -41,7 +41,7 @@ class MainScreen(Screen):
         for match in recent_matches:
             self.check_match(match, ACCOUNT_ID)
             self.ids['progress'].value += 1
-            self.ids['find'].text = "Looking at match: " + int(self.ids['progress'].value) + "/" + str(len(recent_matches))
+            self.ids['find'].text = "Looking at match: " + str(self.ids['progress'].value) + "/" + str(len(recent_matches))
         self.ids['find'].text = "Done"
 
 
