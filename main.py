@@ -22,12 +22,8 @@ for match in recent_matches:
     for player in match_details['players']:
         if 'personaname' in player.keys():
             if player["account_id"] == MY_ACCOUNT_ID:
-                try:
-                    if player['multi_kills'] is not None and '5' in player['multi_kills']:
-                        print(player['multi_kills'])
-                        print('We got a rampage: http://www.opendota.com/matches/%s' % match_details['match_id'])
-                        break
-                except Exception as e:
-                    print(e)
-    print("Not {}".format(match))
+                if player['multi_kills'] is not None and '5' in player['multi_kills']:
+                    print(player['multi_kills'])
+                    print('We got a rampage: http://www.opendota.com/matches/{}'.format(match_details['match_id']))
+                    break
     sleep(BASE_TIMEOUT)
