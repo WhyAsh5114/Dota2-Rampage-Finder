@@ -11,19 +11,19 @@ API_KEY = int(input("Enter API key: "))
 api = dota2api.Initialise(API_KEY)
 
 recent_matches = []
-for match in api.get_match_history(matches_requested=100, account_id=MY_ACCOUNT_ID)['matches']:
+for match in api.get_match_history(matches_requested=NUMBER_OF_MATCHES, account_id=MY_ACCOUNT_ID)['matches']:
     recent_matches.append(match["match_id"])
 
 
 for match in recent_matches:
-    response = requests.get(BASE_API + str(match))
+    match_data_url = BASE_API + str(match)
+    response = requests.get(match_data_url)
     match_details = response.json()
 
     for player in match_details['players']:
         if 'personaname' in player.keys():
             if player["account_id"] == MY_ACCOUNT_ID:
                 if player['multi_kills'] is not None and '5' in player['multi_kills']:
-                    print(player['multi_kills'])
-                    print('We got a rampage: http://www.opendota.com/matches/{}'.format(match_details['match_id']))
+                    print("Rampage found: " + match_data_url)
                     break
     sleep(BASE_TIMEOUT)
