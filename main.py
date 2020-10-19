@@ -4,7 +4,7 @@ import requests
 from kivy.app import App
 from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
-from kivy.uix.label import Label
+from kivy.uix.textinput import TextInput
 from time import sleep
 from threading import Thread
 
@@ -40,7 +40,7 @@ class MainScreen(Screen):
         for player in match_details['players']:
             if player["account_id"] == ACCOUNT_ID:
                 if player['multi_kills'] is not None and '5' in player['multi_kills']:
-                    self.ids['links'].add_widget(Label(text="http://www.opendota.com/matches/" + str(match)))
+                    self.ids['links'].add_widget(TextInput(text="http://www.opendota.com/matches/" + str(match)))
                     break
         sleep(BASE_TIMEOUT)
 
