@@ -12,4 +12,5 @@ Requirements:
 
 
 (Kivy might be needed to be installed using anaconda with python3.7)
+
 Idea by: https://www.reddit.com/user/michel1990/
