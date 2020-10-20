@@ -72,9 +72,15 @@ class MainScreen(Screen):
                     if requests.get(match_details['replay_url']).status_code == 200:
                         requests.post("https://api.opendota.com/api/request/" + str(match))
                         while match_details['version'] is None:
+                            wait = 0
                             self.ids['find'].text = "Parsing match ({}): {}/{}".format(self.ids['find'].text.split("(")[1].split(")")[0], self.ids['find'].text.split(" ")[-1].split("/")[0], self.ids['find'].text.split(" ")[-1].split("/")[1])
                             sleep(PARSE_TIMEOUT)
                             match_details = requests.get(BASE_API + str(match)).json()
+                            wait += 10
+                            if wait > 120:
+                                self.ids['find'].text = "API Timeout, Trying next..."
+                                sleep(2)
+                                break
                     else:
                         self.ids['find'].text = "Replay not available, skipping parsing"
                         sleep(BASE_TIMEOUT)
