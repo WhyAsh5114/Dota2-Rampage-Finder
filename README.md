@@ -11,6 +11,11 @@ Requirements:
 3. requests
 
 
+Limitations:
+1. Can only look for 100 matches per hero
+2. Too old unparsed matches won't be able to be parsed as their replays are no longer available
+
+
 (Kivy might be needed to be installed using anaconda with python3.7)
 
 Idea by: https://www.reddit.com/user/michel1990/
