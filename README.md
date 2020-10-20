@@ -9,7 +9,6 @@ Simply run the code in an IDE and enter:
 Requirements:
 1. dota2api
 2. kivy
-3. requests
 
 
 
