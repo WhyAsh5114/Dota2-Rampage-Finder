@@ -77,7 +77,7 @@ class MainScreen(Screen):
                         match_details = requests.get(BASE_API + str(match)).json()
                         wait += 10
                         if wait > 60:
-                            self.ids['find'].text = "API Timeout, Trying next..."
+                            self.ids['find'].text = "API Timeout, Trying next... (Maybe API call limit reached)"
                             sleep(2)
                             break
                     else:
