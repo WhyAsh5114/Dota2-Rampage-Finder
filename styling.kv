@@ -17,9 +17,9 @@ WindowManager:
 
         Label:
             text: 'Links (will appear as they are found)'
-            font_size: 20
+            font_size: 16
             size_hint: 0.5, 0.1
-            pos_hint: {'center_x':0.75, 'y':0.75}
+            pos_hint: {'center_x':0.75, 'center_y':0.5}
 
         GridLayout:
             cols: 2
@@ -39,7 +39,7 @@ WindowManager:
 
                 TextInput:
                     id: number_of_matches
-                    hint_text: "Number of matches to look at"
+                    hint_text: "Number of matches to look at per hero"
                     multiline: False
 
                 TextInput:
@@ -64,5 +64,5 @@ WindowManager:
         ProgressBar:
             id: progress
             size_hint: 0.75, 0.1
-            pos_hint: {'center_x' : 0.5}
+            pos_hint: {'center_x' : 0.5, "y":0.025}
     
