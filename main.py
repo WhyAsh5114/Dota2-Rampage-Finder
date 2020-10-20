@@ -70,8 +70,8 @@ class MainScreen(Screen):
                 self.ids['find'].text = "Requesting parse of match ({}): {}/{}".format(self.ids['find'].text.split("(")[1].split(")")[0], self.ids['find'].text.split(" ")[-1].split("/")[0], self.ids['find'].text.split(" ")[-1].split("/")[1])
                 try:
                     requests.post("https://api.opendota.com/api/request/" + str(match))
+                    wait = 0
                     while match_details['version'] is None:
-                        wait = 0
                         self.ids['find'].text = "Parsing match ({}): {}/{}".format(self.ids['find'].text.split("(")[1].split(")")[0], self.ids['find'].text.split(" ")[-1].split("/")[0], self.ids['find'].text.split(" ")[-1].split("/")[1])
                         sleep(PARSE_TIMEOUT)
                         match_details = requests.get(BASE_API + str(match)).json()
