@@ -6,12 +6,11 @@ Simply run the code in an IDE and enter:
 
 
 Requirements:
-1. dota2api
-2. kivy
+1. kivy
 
 
 Limitations:
-1. Can only look for 100 matches per hero
+1. Can only look for 100 matches
 2. Too old unparsed matches won't be able to be parsed as their replays are no longer available
 
 
@@ -20,8 +19,5 @@ To be done (contributions available):
 2. File IO or SQL Database
 3. Hero choosing Screen with checkboxes
 4. PyInstaller guide
-
-
-(Kivy might be needed to be installed using anaconda with python3.7)
 
 Idea by: https://www.reddit.com/user/michel1990/
